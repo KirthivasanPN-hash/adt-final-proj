@@ -6,5 +6,3 @@ streamlit-authenticator
 toml
 pathlib
 mysql-connector-python
-mysql
-SQLAlchemy
