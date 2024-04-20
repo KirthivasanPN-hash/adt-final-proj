@@ -6,3 +6,5 @@ streamlit-authenticator
 toml
 pathlib
 mysql-connector-python
+mysql==8.3.0
+SQLAlchemy
