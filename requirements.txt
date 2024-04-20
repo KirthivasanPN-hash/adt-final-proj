@@ -3,6 +3,6 @@ pandas
 numpy
 matplotlib
 streamlit-authenticator
-pickle5
+
 pathlib
 mysql-connector-python
