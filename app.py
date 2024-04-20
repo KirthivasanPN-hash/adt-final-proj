@@ -6,6 +6,7 @@ import Hello
 import prd_mgmt
 import reports
 import transaction
+import testing_connection
 
 # Set page configuration
 st.set_page_config(
@@ -54,7 +55,8 @@ if authentication_status:
         "Hello Page": Hello,
         "Product Management": prd_mgmt,
         "Reports": reports,
-        "Transaction": transaction
+        "Transaction": transaction,
+        "Testing_Connection": testing_connection
     }
 
     authenticator.logout("Logout", "sidebar")
