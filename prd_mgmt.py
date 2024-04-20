@@ -9,7 +9,7 @@ def connect_to_db():
     return mysql.connector.connect(
         host="localhost",
         user="root",
-        port=3306
+        port=3306,
         password="python19",
         database="optiflow"
     )
