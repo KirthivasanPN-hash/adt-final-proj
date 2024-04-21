@@ -6,13 +6,15 @@ import Hello
 import prd_mgmt
 import reports
 import transaction
-import testing_connection
+# import testing_connection
 
 # Set page configuration
 st.set_page_config(
     page_title="Login page",
     page_icon="👋",
 )
+
+st.header("Optiflow Inventory Management ")
 
 # --- USER AUTHENTICATION ---
 usernames = ["kirthivasan"]
@@ -44,6 +46,8 @@ authenticator = stauth.Authenticate(
 
 name, authentication_status, username = authenticator.login(fields=['username', 'password'])
 
+
+
 if authentication_status is False:
     st.error("Username/password is incorrect")
 
@@ -56,7 +60,7 @@ if authentication_status:
         "Product Management": prd_mgmt,
         "Reports": reports,
         "Transaction": transaction,
-        "Testing_Connection": testing_connection
+        # "Testing_Connection": testing_connection
     }
 
     authenticator.logout("Logout", "sidebar")

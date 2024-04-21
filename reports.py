@@ -64,7 +64,7 @@ def main():
     conn = create_server_connection()
 
      # Sidebar options
-    menu = ["Inventory report", "Supplier report", "Orders report", "Revenue report"]
+    menu = ["Inventory report", "Supplier report", "Orders report",]
     choice = st.sidebar.selectbox("Menu", menu)
     # Fetch items from the database
     items = fetch_items(conn)
@@ -96,13 +96,13 @@ def main():
         else:
             st.write("No orders found.")
         
-    if choice == 'Revenue report':
-    # Display items in a table
-        if items:
-            st.write("## Revenue")
-            st.table(revenue)
-        else:
-            st.write("No data found.")
+    # if choice == 'Revenue report':
+    # # Display items in a table
+    #     if items:
+    #         st.write("## Revenue")
+    #         st.table(revenue)
+    #     else:
+    #         st.write("No data found.")
         
     
     

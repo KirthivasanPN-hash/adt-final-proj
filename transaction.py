@@ -149,26 +149,26 @@ def main():
 
 
 
-        query3 = """
-            SELECT TransactionType, Quantity
-            FROM transaction
-            """
+        # query3 = """
+        #     SELECT TransactionType, Quantity
+        #     FROM transaction
+        #     """
         
-        avg_quantity = df.groupby('TransactionType')['Quantity'].mean().reset_index()
-        df3 = pd.read_sql(query3, conn)
-        # Plotting
-        fig, ax = plt.subplots()
-        ax.bar(avg_quantity['TransactionType'], avg_quantity['Quantity'], color='skyblue')
-        ax.set_xlabel('Transaction Type')
-        ax.set_ylabel('Average Quantity')
-        ax.set_title('Average Quantity of Transactions by Type')
-        ax.set_xticklabels(avg_quantity['TransactionType'], rotation=45)
+        # avg_quantity = df.groupby('TransactionType')['Quantity'].mean().reset_index()
+        # df3 = pd.read_sql(query3, conn)
+        # # Plotting
+        # fig, ax = plt.subplots()
+        # ax.bar(avg_quantity['TransactionType'], avg_quantity['Quantity'], color='skyblue')
+        # ax.set_xlabel('Transaction Type')
+        # ax.set_ylabel('Average Quantity')
+        # ax.set_title('Average Quantity of Transactions by Type')
+        # ax.set_xticklabels(avg_quantity['TransactionType'], rotation=45)
 
-        st.pyplot(fig)
+        # st.pyplot(fig)
 
 
-        st.write("")
-        st.write("")
+        # st.write("")
+        # st.write("")
 
 
         # query4 = """
