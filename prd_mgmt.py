@@ -18,7 +18,7 @@ def connect_to_db():
 def create_product_table(conn):
     cursor = conn.cursor()
     cursor.execute("""
-        CREATE TABLE IF NOT EXISTS items (
+        CREATE TABLE IF NOT EXISTS Items (
             index_number INT AUTO_INCREMENT PRIMARY KEY,
             SHIPPING_LOCATION VARCHAR(255),
             DEPARTMENT VARCHAR(255),
@@ -39,7 +39,7 @@ def create_product_table(conn):
 def insert_product(conn, product_data):
     cursor = conn.cursor()
     query = """
-        INSERT INTO items (SHIPPING_LOCATION, DEPARTMENT, category, Breadcrumbs, SKU, PRODUCT_URL, PRODUCT_NAME, BRAND, PRICE_RETAIL, PRICE_CURRENT, PRODUCT_SIZE)
+        INSERT INTO Items (SHIPPING_LOCATION, DEPARTMENT, category, Breadcrumbs, SKU, PRODUCT_URL, PRODUCT_NAME, BRAND, PRICE_RETAIL, PRICE_CURRENT, PRODUCT_SIZE)
         VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
     """
     cursor.execute(query, product_data)
@@ -50,7 +50,7 @@ def insert_product(conn, product_data):
 def update_product(conn, product_id, product_data):
     cursor = conn.cursor()
     query = """
-        UPDATE items
+        UPDATE Items
         SET SHIPPING_LOCATION = %s, DEPARTMENT = %s, category = %s, Breadcrumbs = %s, SKU = %s, PRODUCT_URL = %s, PRODUCT_NAME = %s, BRAND = %s, PRICE_RETAIL = %s, PRICE_CURRENT = %s, PRODUCT_SIZE = %s
         WHERE index_number = %s
     """
@@ -61,7 +61,7 @@ def update_product(conn, product_id, product_data):
 def delete_product(conn, product_id):
     cursor = conn.cursor()
     query = """
-        DELETE FROM items WHERE index_number = %s
+        DELETE FROM Items WHERE index_number = %s
     """
     cursor.execute(query, (product_id,))
     conn.commit()
