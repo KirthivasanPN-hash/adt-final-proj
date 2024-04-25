@@ -7,10 +7,11 @@ def create_server_connection():
     connection = None
     try:
         connection = mysql.connector.connect(
-            host="localhost",
-            user="root",
-            password="python19",
-            database="optiflow"
+            host="y5s2h87f6ur56vae.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+            port=3306,
+            user="fpb88ek60sl39cgj",
+            password="h0up9wllusrv5ss6",
+            database="f0uk4v9q5xl7dodx"
         )
         print("MySQL Database connection successful")
     except Error as err:

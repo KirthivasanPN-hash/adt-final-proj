@@ -7,11 +7,11 @@ st.sidebar.header("Product management page")
 # Establish connection to MySQL database
 def connect_to_db():
     return mysql.connector.connect(
-        host="localhost",
-        user="root",
+         host="y5s2h87f6ur56vae.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
         port=3306,
-        password="python19",
-        database="optiflow"
+        user="fpb88ek60sl39cgj",
+        password="h0up9wllusrv5ss6",
+        database="f0uk4v9q5xl7dodx"
     )
 
 # Create product table if not exists
