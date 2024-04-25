@@ -31,14 +31,14 @@ def execute_query(connection, query):
 # Placeholder function to fetch items (modify with actual query)
 def fetch_items(connection):
     cursor = connection.cursor(dictionary=True)  # Set dictionary cursor to fetch column names
-    query = "SELECT * FROM items"
+    query = "SELECT * FROM Items"
     cursor.execute(query)
     items = cursor.fetchall()
     return items
 
 def fetch_suppliers(connection):
     cursor = connection.cursor(dictionary=True)  # Set dictionary cursor to fetch column names
-    query = "SELECT * FROM suppliers"
+    query = "SELECT * FROM Suppliers"
     cursor.execute(query)
     items = cursor.fetchall()
     return items
@@ -46,14 +46,14 @@ def fetch_suppliers(connection):
 
 def fetch_orders(connection):
     cursor = connection.cursor(dictionary=True)  # Set dictionary cursor to fetch column names
-    query = "SELECT * FROM orders"
+    query = "SELECT * FROM Orders"
     cursor.execute(query)
     items = cursor.fetchall()
     return items
 
 def fetch_revenue(connection):
     cursor = connection.cursor(dictionary=True)  # Set dictionary cursor to fetch column names
-    query = "SELECT * FROM revenue"
+    query = "SELECT * FROM Revenue"
     cursor.execute(query)
     items = cursor.fetchall()
     return items
