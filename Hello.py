@@ -80,7 +80,7 @@ def fetch_trans_count(connection):
 def fetch_cusomters_count(connection):
     # Your SQL query to count items
     cursor = connection.cursor()
-    query = "SELECT COUNT(*) FROM users where Role = 'Customer'"
+    query = "SELECT COUNT(*) FROM Users where Role = 'Customer'"
     cursor.execute(query)
     # Fetches the first row from the results (which contains the count)
     items_count = cursor.fetchone()[0]
