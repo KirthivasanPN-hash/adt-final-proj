@@ -38,7 +38,7 @@ def execute_query(connection, query):
 def fetch_items_count(connection):
     # Your SQL query to count items
     cursor = connection.cursor()
-    query = "SELECT COUNT(*) FROM items"
+    query = "SELECT COUNT(*) FROM Items"
     cursor.execute(query)
     # Fetches the first row from the results (which contains the count)
     items_count = cursor.fetchone()[0]
