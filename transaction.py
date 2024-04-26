@@ -33,7 +33,7 @@ def execute_query(connection, query):
 # Placeholder function to fetch items (modify with actual query)
 def fetch_transaction(connection):
     cursor = connection.cursor(dictionary=True)  # Set dictionary cursor to fetch column names
-    query = "SELECT * FROM transaction"
+    query = "SELECT * FROM Transaction"
     cursor.execute(query)
     items = cursor.fetchall()
     return items
@@ -51,14 +51,14 @@ def insert_invoice(conn, invoice_data):
 def main():
     conn = create_server_connection()
      # Sidebar options
-    menu = ["View transactions", "Update invoice", "Transaction analysis report"]
+    menu = ["View Transactions", "Update invoice", "Transaction analysis report"]
     choice = st.sidebar.selectbox("Menu", menu)
     
 
     transactions = fetch_transaction(conn)
     
 
-    if choice == 'View transactions':
+    if choice == 'View Transactions':
     # Display items in a table
         if transactions:
             st.write("## Transactions")
@@ -86,7 +86,7 @@ def main():
         st.subheader("Transaction Analysis")
         query = """
             SELECT TransactionID, ItemID, TransactionType, Quantity, TransactionDate, Notes
-            FROM transaction
+            FROM Transaction
             """
 
         df = pd.read_sql(query, conn)
@@ -109,7 +109,7 @@ def main():
 
         query1 = """
             SELECT ItemID, Quantity
-            FROM transaction
+            FROM Transaction
             """
         
         df1 = pd.read_sql(query1, conn)
@@ -130,7 +130,7 @@ def main():
 
         query4 = """
             SELECT TransactionType
-            FROM transaction
+            FROM Transaction
             """
         df4 = pd.read_sql(query4, conn)
         transaction_counts = df4['TransactionType'].value_counts().reset_index()

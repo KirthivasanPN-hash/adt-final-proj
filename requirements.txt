@@ -6,3 +6,4 @@ streamlit-authenticator
 toml
 pathlib
 mysql-connector-python
+pyrebase
