@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 import mysql.connector
 from mysql.connector import Error
+import altair as alt
 
 # Connection to MySQL Database
 def create_server_connection():
@@ -185,31 +186,26 @@ def main():
     st.write("")   
     st.write("")  
 
-
-    # Sample data - you would replace this with your actual data
+# Sample data as adjusted above
     chart_data = pd.DataFrame({
-    "Month": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-    "Sales": np.random.randint(100, 500, size=6),
-    "Revenue": np.random.randint(1000, 5000, size=6)
-})
+        "Month": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+        "Sales": [3360, 2859, 1906, 3533, 4808, 2668],
+        "Revenue": [3002, 2773, 1434, 3436, 4492, 2203]
+    })
 
-    # Add a numerical month column for sorting
-    chart_data['MonthNum'] = chart_data['Month'].map(month_to_num)
-
-    # Sort the DataFrame by the numerical month column
-    chart_data.sort_values(by='MonthNum', inplace=True)
-
-    # Remove the numerical month column if not needed for plotting
-    chart_data.drop('MonthNum', axis=1, inplace=True)
-
-
-    # Melt the data so that Sales and Revenue are in the same column, 
-    # which allows us to color by the variable type (Sales/Revenue) in the bar chart.
+    # Melt the DataFrame to allow coloring by variable type in the bar chart
     melted_data = chart_data.melt(id_vars='Month', var_name='Type', value_name='Amount')
 
-    # Create a bar chart using Streamlit's built-in functionality
-    st.bar_chart(data=melted_data, x="Month", y="Amount", color="Type")
-        
+    # Create the bar chart using Altair
+    chart = alt.Chart(melted_data).mark_bar().encode(
+        x='Month',
+        y='Amount',
+        color='Type',
+        tooltip=['Month', 'Type', 'Amount']
+    ).properties(width=600)
+
+    # Display the chart in Streamlit
+    st.altair_chart(chart, use_container_width=True)
     conn.close()
 
 if __name__ == "__main__":

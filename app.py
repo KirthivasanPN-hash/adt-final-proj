@@ -1,6 +1,4 @@
-# import streamlit as st
-# import pickle
-# from pathlib import Path
+
 import streamlit as st
 import Hello
 import prd_mgmt
@@ -8,9 +6,7 @@ import reports
 import transaction
 import pyrebase
 import os
-# import testing_connection
 
-# Set page configuration
 st.set_page_config(
     page_title="Auth page",
     page_icon="👋",
@@ -18,16 +14,6 @@ st.set_page_config(
 
 st.header("Optiflow Inventory Management ")
 
-
-# # Initialize the authenticator with the correct parameters
-# authenticator = stauth.Authenticate(
-#     credentials=credentials,
-#     cookie_name='hello_page',  # Set the cookie name for session management
-#     cookie_key='wswsws',  # Set a secret key for cookie encryption/signing
-#     cookie_expiry_days=2  # Optional: cookie expiration duration
-# )
-
-# name, authentication_status, username = authenticator.login(fields=['username', 'password'])
 
 
 # Environment variables are recoed for sensitive information
