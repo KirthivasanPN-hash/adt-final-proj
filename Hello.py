@@ -66,7 +66,20 @@ def card_ui2(title, content):
     """
     st.markdown(card_html, unsafe_allow_html=True)
 
-
+def search_bar(connection, search_term):
+    cursor = connection.cursor(dictionary=True)
+    query = """
+        SELECT * FROM Items 
+        WHERE index_number = %s 
+        OR PRODUCT_NAME LIKE %s
+    """
+    cursor.execute(query, (search_term, f'%{search_term}%'))
+    
+    # Fetch and return results
+    result = cursor.fetchall()
+    cursor.close()
+    
+    return result
 
 def fetch_trans_count(connection):
     # Your SQL query to count items
@@ -124,9 +137,21 @@ def main():
     "Jul": 7, "Aug": 8, "Sep": 9, "Oct": 10, "Nov": 11, "Dec": 12
     }
 
+
+    search_term = st.text_input('Search for an item')
     
-    # Search bar
-    search_term = st.text_input('Search an item')
+    # Search when the user clicks the button
+    st.write('Please enter the product ID or name to search. (eg: Product name: Great Value Original Saltine Crackers or ID: 7423)')
+    if st.button('Search'):
+        # Call the search_bar function
+        search_results = search_bar(conn, search_term)
+        
+        # Display the results
+        if search_results:
+            st.write("Search results:")
+            st.table(search_results)
+        else:
+            st.write("No results found")
 
     # Use a single column layout to ensure that the columns below will be full width
     st.write('## Key Metrics')
